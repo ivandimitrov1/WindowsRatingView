@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RatingViewControl.MainPage"
+             xmlns:controls="clr-namespace:RatingViewControl.Controls">
+
+    <CollectionView ItemsSource="{Binding Movies}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout HorizontalItemSpacing="20" Orientation="Vertical">
+
+            </GridItemsLayout>
+        </CollectionView.ItemsLayout>
+        <CollectionView.Header>
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Name" Grid.Column="0"/>
+                <Label Text="Rating" Grid.Column="1"/>
+            </Grid>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Text="{Binding Title}" Grid.Column="0"/>
+
+                    <controls:RatingView Value="{Binding Rating}" Color="Yellow" Grid.Column="1" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
